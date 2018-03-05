@@ -2,7 +2,7 @@ const path = require('path');
 let config = {
   db: 'mongodb://localhost/node_blog_dev',
   port: 8810,
-  log_dir: path.join(__dirname, './log'),
+  log_dir: path.join(__dirname, './logs'),
   session_secret: "your session key",
   cookie_secret: "your cookie key",
   auth_cookie_name: 'your session cookie key',
