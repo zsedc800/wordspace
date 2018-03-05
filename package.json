@@ -1,0 +1,32 @@
+{
+  "name": "wordspace",
+  "version": "1.0.0",
+  "description": "personal space",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsedc800/wordspace.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "restful"
+  ],
+  "author": "zsedc800",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zsedc800/wordspace/issues"
+  },
+  "homepage": "https://github.com/zsedc800/wordspace#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "log4js": "^2.5.3",
+    "mongoose": "^5.0.8"
+  }
+}
