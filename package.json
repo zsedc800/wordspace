@@ -28,6 +28,14 @@
     "express-session": "^1.15.6",
     "log4js": "^2.5.3",
     "mongoose": "^5.0.8",
+    "pm2": "^2.10.1",
     "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "codecov": "^3.0.0",
+    "mocha": "^5.0.2",
+    "nyc": "^11.4.1",
+    "supertest": "^3.0.0"
   }
 }
