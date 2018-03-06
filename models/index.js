@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Logger = require('../utils/logger');
 const config = require('../config');
 const Article = require('./article');
-const Tag = require('./tags');
 const User = require('./user');
 const logger = Logger.getLogger('models/index');
 
@@ -16,6 +15,5 @@ mongoose.connect(config.db, {
 
 module.exports = {
   User,
-  Tag,
   Article
 };

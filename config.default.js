@@ -1,6 +1,6 @@
 const path = require('path');
 let config = {
-  db: 'mongodb://localhost/node_blog_dev',
+  db: 'mongodb://localhost/wordspace_dev',
   port: 8810,
   log_dir: path.join(__dirname, './logs'),
   session_secret: "your session key",
@@ -18,7 +18,7 @@ let config = {
 };
 
 if (process.env.NODE_ENV === 'test') {
-  config.db = 'mongod://localhost/node_blog_test';
+  config.db = 'mongod://localhost/wordspace_test';
 }
 
 module.exports = config;

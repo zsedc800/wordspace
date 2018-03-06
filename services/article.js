@@ -1,4 +1,4 @@
-const { Article } = require('../../models');
+const { Article } = require('../models');
 
 exports.create = function (articleData) {
   let article = new Article(articleData);
@@ -10,6 +10,10 @@ exports.update = function (articleData) {
   delete articleData._id;
   return Article.update({ _id }, articleData);
 };
+
+exports.delete = function (articleId) {
+  return Article.remove({ _id: articleId });
+}
 
 exports.getAll = function ({ skip, limit, condition }) {
   return Article.count(condition).then(count => {
