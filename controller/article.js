@@ -1,25 +1,26 @@
 const articleServ = require('../services/article');
-const { responseClient } = require('../utils/resp');
+const { responseClient, paramCollect } = require('../utils/resp');
 const logger = require('../utils/logger').getLogger('controller/article');
 exports.delete = async function (req, res, next) {
   let articleId = req.params.id;
   try {
-    await articleServ.delete(id)
+    await articleServ.delete(articleId)
   } catch (e) {
     logger.error('删除文档出错 ', e.message);
     return responseClient(res, 500, 2, '删除失败', { err: e.message });
   }
   responseClient(res, 200, 0, 'success');
 };
-
 exports.update = async function (req, res, next) {
   let id = req.params.id;
+  let updateInfo = paramCollect(req.body);
   try {
-    await articleServ.update(id);
+    await articleServ.update(id, updateInfo);
   } catch (e) {
     logger.error('更新文档失败 ', e.message);
     return responseClient(res, 500, 2, '更新失败', { err: e.message });
   }
+  responseClient(res, 200, 0, 'success');
 };
 
 exports.index = async function (req, res, next) {
@@ -39,19 +40,8 @@ exports.index = async function (req, res, next) {
 }
 
 exports.create = function (req, res, next) {
-  let {
-    content,
-    title,
-    author,
-    description
-  } = req.body;
-
-  articleServ.create({
-    content,
-    title,
-    author,
-    description
-  }).then(result => {
+  let article = paramCollect(req.body);
+  articleServ.create(article).then(result => {
     responseClient(res, 200, 0, 'success');
   }).catch(err => {
     logger.error('article create failed error is : ', err.message);

@@ -13,4 +13,5 @@ exports.paramCollect = function (param) {
       obj[key] = param[key];
     }
   });
+  return obj;
 };

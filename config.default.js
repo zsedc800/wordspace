@@ -18,7 +18,7 @@ let config = {
 };
 
 if (process.env.NODE_ENV === 'test') {
-  config.db = 'mongod://localhost/wordspace_test';
+  config.db = 'mongodb://localhost/wordspace_test';
 }
 
 module.exports = config;

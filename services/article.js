@@ -5,14 +5,12 @@ exports.create = function (articleData) {
   return article.save();
 };
 
-exports.update = function (articleData) {
-  let _id = articleData._id;
-  delete articleData._id;
-  return Article.update({ _id }, articleData);
+exports.update = function (id, articleData) {
+  return Article.findByIdAndUpdate(id, articleData);
 };
 
 exports.delete = function (articleId) {
-  return Article.remove({ _id: articleId });
+  return Article.findByIdAndRemove(articleId);
 }
 
 exports.getAll = function ({ skip, limit, condition }) {
@@ -31,6 +29,9 @@ exports.getAll = function ({ skip, limit, condition }) {
 
 exports.getDetail = function (_id) {
   return Article.findOne({ _id }).then(article => {
+    if (!article) {
+      throw new Error('article not found');
+    }
     article.pv++;
     return Article.update({ _id }, { pv: article.pv }).then(result => {
       return article;

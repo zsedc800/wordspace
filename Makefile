@@ -1,4 +1,4 @@
-TESTS = $(shell find test/specs -type f -name "*.spec.js")
+TESTS = $(shell find test/specs -type f -name "*.js")
 TEST_TIMEOUT = 10000
 # NPM_REGISTRY = "--registry=http://registry.npm.taobao.org"
 NPM_REGISTRY = "" 
@@ -16,7 +16,7 @@ pretest:
 		mkdir static/upload; \
 	fi
 
-test: install pretest
+test: pretest
 	@NODE_ENV=test ./node_modules/.bin/mocha \
 		--timeout $(TEST_TIMEOUT) \
 		$(TESTS)
